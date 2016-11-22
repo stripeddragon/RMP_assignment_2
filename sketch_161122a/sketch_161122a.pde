@@ -10,19 +10,32 @@ boolean upDown = true;
 void setup(){
   loadPixels();
   size(640,480);
-  video = new Capture(this,640,480, 30);
+  video = new Capture(this,640,480, 5);
   video.start();
+  frameRate(5);
 };
+
 void draw(){
  if (video.available()) {
- 
     video.read();
   } 
-  image(video,0,0);
-for(int i = 0;i <= 10; i++ )
-  {
-  float positionY = 10 ;
-  rect(positionY*i,moveRectX,10,10);
+
+for(int i = 0;i <= width/10; i++ ){
+  for(int x = 0; x < height; ++x){
+    for(int y = 0; y < height; ++y){
+     
+     int loc = x+y * width;
+     
+     float r= red(video.pixels[loc]); 
+     float g= red(video.pixels[loc]); 
+     float b= red(video.pixels[loc]); 
+     
+     fill(r,g,b);
+     float positionY = 10 ;
+     rect(positionY*i,moveRectX,10,10);
+     noStroke();
+   }
+  }
   }
   if(moveRectX >= height)
   {
