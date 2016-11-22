@@ -8,13 +8,9 @@ float moveRectX = 0 ;
 boolean upDown = true;
 
 void setup(){
+  loadPixels();
   size(640,480);
-  frameRate(5);
- 
-
-  video = new Capture(this,640,480, 5);
-  
-
+  video = new Capture(this,640,480, 30);
   video.start();
 };
 void draw(){
@@ -22,6 +18,7 @@ void draw(){
  
     video.read();
   } 
+  image(video,0,0);
 for(int i = 0;i <= 10; i++ )
   {
   float positionY = 10 ;
@@ -43,4 +40,5 @@ for(int i = 0;i <= 10; i++ )
   {
     moveRectX += 5;
   }
+  
 };
