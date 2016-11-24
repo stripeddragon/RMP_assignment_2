@@ -8,13 +8,13 @@ class Swipe{
 
  
   void display(){
-    if(mouseX >= width/2)
+    if(mouseX >= width/10)
     {
-      objectSize = int(mouseX/50);
+      objectSize = int(mouseX/10);
     }
     else
     {
-     objectSize = 4;
+     objectSize = 2;
     }
    for (int x = 0; x < width; x+=objectSize ) {
   
