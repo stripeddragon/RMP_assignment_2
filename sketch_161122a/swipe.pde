@@ -10,9 +10,9 @@ class Swipe{
  
   void display(){
 
-   for (int x = 0; x < width; x+=10 ) {
+   for (int x = 0; x < width; x+=5 ) {
   
-    for (int y = 0; y < height; y+=10 ) {
+    for (int y = 0; y < height; y+=5 ) {
       
       
       int loc = x + int(objY)*video.width;
@@ -26,14 +26,14 @@ class Swipe{
 
       noStroke();
       fill(c);
-      ellipse(x,objY, objectSize,objectSize);
+      rect(x,objY, objectSize,objectSize);
      
  }
     }
   }
  
   void move(){
-  if(this.objY >= height-9)
+  if(this.objY >= height-5)
   {
     upDown = false;
   }

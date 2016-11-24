@@ -14,7 +14,7 @@ void setup(){
   stuff = new Swipe();
  
 }
-  stuff.objectSize= 10;
+  stuff.objectSize= 5;
   
   video = new Capture(this,320,240, 5);
   video.start();
@@ -23,7 +23,7 @@ void setup(){
 
   void draw() {
     video.read();
-    image(video,0,0);
+    //image(video,0,0);
     loadPixels();
     video.loadPixels();
 
