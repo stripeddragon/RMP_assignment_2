@@ -52,3 +52,35 @@ class Swipe{
   }
 
 }
+
+class Pixeled{
+ 
+
+  float objectSize;
+  
+
+ 
+  void display(){
+
+   for (int x = 0; x < width; x+=objectSize ) {
+  
+    for (int y = 0; y < height; y+=objectSize ) {
+      
+      
+      int loc = x + int(y)*video.width;
+
+      float r = red (video.pixels[loc]);
+      float g = green (video.pixels[loc]);
+      float b = blue (video.pixels[loc]);
+       
+      color c = color(r,g,b);
+      
+
+      noStroke();
+      fill(c);
+      rect(x,y, objectSize,objectSize);
+     
+     }
+    }
+  }
+}
