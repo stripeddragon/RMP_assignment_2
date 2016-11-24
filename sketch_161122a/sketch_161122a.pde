@@ -10,17 +10,17 @@ boolean upDown = true;
 
 void setup(){
   size(320,240);
-  for(int i = 0; i<width/10; i++)
-{
+
+
   stuff = new Swipe();
  
-}
+
   pMode = new Pixeled();
-  stuff.objectSize= 5;
+
   pMode.objectSize= 5;
-  video = new Capture(this,320,240, 5);
+  video = new Capture(this,320,240, 30);
   video.start();
-  frameRate(5);
+  frameRate(30);
 };
 void mouseClicked()
 {
@@ -37,18 +37,16 @@ void mouseClicked()
     video.read();
     loadPixels();
     video.loadPixels();
-    if(change == false)
+    if(change == true)
     {
     stuff.display();
     stuff.move();
     }
-    if(change == true)
+    if(change == false)
     {
     image(video,0,0);
     pMode.display();
     
     }
-    
-   
   }
   

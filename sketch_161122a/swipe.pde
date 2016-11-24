@@ -1,18 +1,24 @@
 class Swipe{
  
-  float objX;
   float objY;
   boolean upDown = false;
-
+ 
   float objectSize;
-  
+
 
  
   void display(){
-
-   for (int x = 0; x < width; x+=5 ) {
+    if(mouseX >= width/2)
+    {
+      objectSize = int(mouseX/50);
+    }
+    else
+    {
+     objectSize = 4;
+    }
+   for (int x = 0; x < width; x+=objectSize ) {
   
-    for (int y = 0; y < height; y+=5 ) {
+    for (int y = 0; y < height; y+=objectSize ) {
       
       
       int loc = x + int(objY)*video.width;
@@ -33,21 +39,21 @@ class Swipe{
   }
  
   void move(){
-  if(this.objY >= height-5)
+  if(this.objY >= height-objectSize)
   {
     upDown = false;
   }
-   if(this.objY <= height/height)
+   if(this.objY <= height/height+objectSize)
   {
     upDown = true;
   }
    if( upDown == true)
   {
-    objY +=5;
+    objY +=objectSize;
   }
    if( upDown == false)
   {
-    objY -=5;
+    objY -=objectSize;
   }
   }
 
