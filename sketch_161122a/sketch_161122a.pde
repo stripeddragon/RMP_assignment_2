@@ -4,16 +4,26 @@ Swipe stuff;
 Pixeled pMode;
 Capture video;
 
+String locationName;
+
+int temperature;
+
 float moveRectX = 0 ;
+
 boolean change = false;
 boolean upDown = true;
 
 void setup(){
   size(320,240);
-
-
+  
+  XML xmlSammple = loadXML("data.xml");
+  
+  XML temperatureNode = xmlSammple.getChild("temperature");
+  
+  temperature = (int)(temperatureNode.getFloat("value")-273.15);
+  
   stuff = new Swipe();
- 
+  stuff.changeTint = temperature ;
 
   pMode = new Pixeled();
 
@@ -22,6 +32,7 @@ void setup(){
   video.start();
   frameRate(30);
 };
+
 void mouseClicked()
 {
   if(change == false)
@@ -34,6 +45,7 @@ void mouseClicked()
   }
 }
   void draw() {
+    
     video.read();
     loadPixels();
     video.loadPixels();
@@ -47,6 +59,15 @@ void mouseClicked()
     image(video,0,0);
     pMode.display();
     
+    //if(tintChange == true)
+    //{
+      
+    //}
+    
+    
     }
+    
+    
+    
   }
   
