@@ -6,8 +6,8 @@ class Swipe{
   boolean upDown = false;
    
   float objectSize;
-
-
+  int count;
+   
  
   void display(){
     if(mouseX >= width/10)
@@ -27,21 +27,20 @@ class Swipe{
       float r = red (video.pixels[loc]);
       float g = green (video.pixels[loc]);
       float b = blue (video.pixels[loc]);
-      if(keyPressed)
-      {
-        if(key == 'r')
+     
+         if(count==1)
         {
           r = changeTint;
         }
-        if(key == 'g')
+        if(count==2)
         {
           g = changeTint;
         }
-        if(key == 'b')
+        if(count==3)
         {
           b = changeTint;
         }
-      }
+
       color c = color(r,g,b);
       
 

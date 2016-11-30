@@ -32,7 +32,20 @@ void setup(){
   video.start();
   frameRate(30);
 };
-
+void keyPressed()
+      {
+        if(key == 't')
+        {
+          if(stuff.count<=3)
+          {
+          stuff.count ++;
+          }
+          else
+          {
+            stuff.count = 0;
+          }
+        }
+       } 
 void mouseClicked()
 {
   if(change == false)
