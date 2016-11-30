@@ -1,7 +1,13 @@
+import ddf.minim.*;
 
 import processing.video.*;
+
+Minim minim;
+AudioInput in;
+
 Swipe stuff;
 Pixeled pMode;
+
 Capture video;
 
 String locationName;
@@ -15,6 +21,9 @@ boolean upDown = true;
 
 void setup(){
   size(320,240);
+  
+  minim = new Minim(this);
+  in = minim.getLineIn();
   
   XML xmlSammple = loadXML("data.xml");
   
@@ -58,7 +67,7 @@ void mouseClicked()
   }
 }
   void draw() {
-    
+   
     video.read();
     loadPixels();
     video.loadPixels();
@@ -69,18 +78,14 @@ void mouseClicked()
     }
     if(change == false)
     {
+    
     image(video,0,0);
     pMode.display();
-    
-    //if(tintChange == true)
-    //{
-      
-    //}
-    
+    fill(0,0,0,in.left.level()*200);
+    rect(0,0,width,height);
     
     }
-    
-    
-    
+   
+   
   }
   
